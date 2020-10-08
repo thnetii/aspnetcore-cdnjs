@@ -1,0 +1,13 @@
+@using static THNETII.CdnJs.Bootstrap.BootstrapConstants
+
+<environment include="Development">
+    <link rel="stylesheet" href="~/@GridStyleSheet.LocalUrl" />
+</environment>
+<environment exclude="Development">
+    <link rel="stylesheet" href="@GridStyleSheetMinified.Url"
+          asp-fallback-href="~/@GridStyleSheetMinified.LocalUrl"
+          asp-fallback-test-class="@GridStyleSheet.AspFallbackTestClass"
+          asp-fallback-test-property="@GridStyleSheet.AspFallbackTestProperty"
+          asp-fallback-test-value="@GridStyleSheet.AspFallbackTestValue"
+          integrity="@GridStyleSheetMinified.Sri" crossorigin="anonymous" />
+</environment>

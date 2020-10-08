@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netcoreapp3.1</TargetFrameworks>
+    <TargetFrameworks Condition="'$(NoNetFramework)'!='true'">$(TargetFrameworks);net461</TargetFrameworks>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+    <RootNamespace>THNETII.CdnJs.JQuery.Validation.Unobtrusive</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework Condition="'$(BuildDefaultTargetFramework)'!=''">netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup Condition="
+             ('$(TargetFrameworkIdentifier)' == '.NETStandard'  AND '$(_TargetFrameworkVersionWithoutV)' &gt;= '2.0') OR
+             ('$(TargetFrameworkIdentifier)' == '.NETFramework' AND '$(_TargetFrameworkVersionWithoutV)' &gt;= '4.6')
+              ">
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="
+             ('$(TargetFrameworkIdentifier)' == '.NETCoreApp'  AND '$(_TargetFrameworkVersionWithoutV)' &gt;= '3.0')
+             ">
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Remove="Microsoft.SourceLink.GitHub" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.1.76" PrivateAssets="All" />
+    <Content Remove="libman.json" />
+    <None Include="libman.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\THNETII.CdnJs.JQueryValidate\THNETII.CdnJs.JQueryValidate.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,13 @@
+@using static THNETII.CdnJs.Bootstrap.BootstrapConstants
+
+<environment include="Development">
+    <link rel="stylesheet" href="~/@RebootStyleSheet.LocalUrl" />
+</environment>
+<environment exclude="Development">
+    <link rel="stylesheet" href="@RebootStyleSheetMinified.Url"
+          asp-fallback-href="~/@RebootStyleSheetMinified.LocalUrl"
+          asp-fallback-test-class="@RebootStyleSheet.AspFallbackTestClass"
+          asp-fallback-test-property="@RebootStyleSheet.AspFallbackTestProperty"
+          asp-fallback-test-value="@RebootStyleSheet.AspFallbackTestValue"
+          integrity="@RebootStyleSheetMinified.Sri" crossorigin="anonymous" />
+</environment>

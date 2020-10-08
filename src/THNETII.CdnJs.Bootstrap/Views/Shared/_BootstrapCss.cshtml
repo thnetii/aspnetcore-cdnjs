@@ -1,0 +1,13 @@
+@using static THNETII.CdnJs.Bootstrap.BootstrapConstants
+
+<environment include="Development">
+    <link rel="stylesheet" href="~/@StyleSheet.LocalUrl" />
+</environment>
+<environment exclude="Development">
+    <link rel="stylesheet" href="@StyleSheetMinified.Url"
+          asp-fallback-href="~/@StyleSheetMinified.LocalUrl"
+          asp-fallback-test-class="@StyleSheet.AspFallbackTestClass"
+          asp-fallback-test-property="@StyleSheet.AspFallbackTestProperty"
+          asp-fallback-test-value="@StyleSheet.AspFallbackTestValue"
+          integrity="@StyleSheetMinified.Sri" crossorigin="anonymous" />
+</environment>

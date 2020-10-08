@@ -1,0 +1,11 @@
+@using static THNETII.CdnJs.PopperJS.PopperJSConstants
+
+<environment include="Development">
+    <script src="~/@Lite.LocalUrl"></script>
+</environment>
+<environment exclude="Development">
+    <script src="@LiteMinified.Url"
+            asp-fallback-src="~/@LiteMinified.LocalUrl"
+            asp-fallback-test="@AspFallbackTest"
+            integrity="@LiteMinified.Sri" crossorigin="anonymous"></script>
+</environment>
